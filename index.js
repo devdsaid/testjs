@@ -1,4 +1,4 @@
-const onj = users[{
+const object = users[{
     id: 1,
     name: 'Рамазан',
     age: 25
@@ -14,4 +14,5 @@ const onj = users[{
     id: 4,
     name: 'Батыр',
     age: 29
-}, ]
+}];
+console.log(object)
