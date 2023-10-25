@@ -1,18 +1,34 @@
-const object = users[{
-    id: 1,
-    name: 'Рамазан',
-    age: 25
-}, {
-    id: 2,
-    name: 'Ибрагим',
-    age: 26
-}, {
-    id: 3,
-    name: 'Артур',
-    age: 28
-}, {
-    id: 4,
-    name: 'Батыр',
-    age: 29
-}];
-console.log(object)
+let mode = 'time';
+const date = document.querySelector('#date');
+const timer = document.querySelector('#time');
+const result = document.querySelector('.result');
+
+let resultDate = function(time) {
+    let now = new Date()
+    switch (time) {
+        case 'date':
+            return now.toLocaleDateString();
+        case 'time':
+            return now.toLocaleTimeString();
+        default:
+            return now.toLocaleTimeString()
+    }
+}
+
+let resultFunction = function(t) {
+    return function() {
+        mode = t
+        update()
+    }
+}
+
+function update() {
+    result.textContent = resultDate(mode)
+}
+
+setInterval(update, 1000)
+update()
+
+
+date.onclick = resultFunction('date')
+timer.onclick = resultFunction('time')
